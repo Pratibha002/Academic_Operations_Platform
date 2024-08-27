@@ -1,23 +1,23 @@
 package com.academics.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController
+@Controller
 public class AdminController {
 	@Autowired
 	//public AdminDao adminDao;
-	
-	
-	
-	
+
 	@RequestMapping("/classes")
 	public String classes() {
 		
 		return "addClasses";
-	}
+		
+	}	
 	
 	@RequestMapping("/addClasses")
 	public String addClasses() {
