@@ -4,9 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+//@RestController
 @Controller
 public class AdminController {
-	// @Autowired
+//	@Autowired
 	// public AdminDao adminDao;
 
 	@RequestMapping("/classes")
@@ -17,9 +19,10 @@ public class AdminController {
 	}
 
 	@RequestMapping("/addClasses")
-	public String addClasses() {
+	public String addClasses(@RequestParam("className") String className, @RequestParam("feesAmount") int feesAmount) {
 
-		return "redirect:/classes";
+		System.out.println(className + "--" + feesAmount);
+		return "redirect:/academic/classes";
 	}
 
 	@RequestMapping("/session")
@@ -29,9 +32,11 @@ public class AdminController {
 	}
 
 	@RequestMapping("/addsession")
-	public String addSession() {
+	public String addSession(@RequestParam("sessionStart") String sessionStart,
+			@RequestParam("sessionEnd") String sessionEnd) {
 
-		return "redirect:/session";
+		System.out.println(sessionStart + "---" + sessionEnd);
+		return "redirect:/academic/session";
 	}
 
 	@RequestMapping("/category")
@@ -41,9 +46,10 @@ public class AdminController {
 	}
 
 	@RequestMapping("/addcategory")
-	public String addCategory() {
+	public String addCategory(@RequestParam("category") String category) {
+		System.out.println(category + "----");
+		return "redirect:/academic/category";
 
-		return "redirect:/category";
 	}
 
 	@RequestMapping("/feestype")
